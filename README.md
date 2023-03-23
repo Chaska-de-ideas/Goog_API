@@ -38,7 +38,7 @@ Ud. puede optar por instalar la librería completa o sólo alguno de sus módulo
     
 #### a. Toda la librería
 Puede instalar la librería completa a partir del paquete `.tar.gz` utilizando `PIP`, según se indica a continuación:
-1. **Descargue** el archivo [**`Goog_API.tar.gz`**](https://github.com/Chaska-de-ideas/Goog_API/blob/main/Goog_API-0.1.tar.gz)
+1. **Descargue** el archivo [**`Goog_API.tar.gz`**](https://github.com/Chaska-de-ideas/Goog_API/raw/main/Goog_API-0.1.tar.gz)
 2.  **Ejecute** el siguiente comando en la `terminal`:
 
 ``` Bash
