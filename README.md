@@ -42,7 +42,7 @@ Puede instalar la librería completa a partir del paquete `.tar.gz` utilizando `
 2.  **Ejecute** el siguiente comando en la `terminal`:
 
 ``` Bash
-pip install /ruta/al/archivo/Goog_API.tar.gz
+pip install /ruta/al/archivo/Goog_API-0.1.tar.gz
 ``` 
 
 #### b. Módulos particulares
@@ -62,7 +62,7 @@ pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-pyt
 2. Luego, deberá instalar el módulo que desea agregando al comando `PIP` el sufijo `#egg` para indicar el módulo correspondiente:
 
 ```Bash
-pip install /ruta/al/archivo/Goog_API.tar.gz#egg=Goog_API[Goog_API_Sheets_Metodos]
+pip install /ruta/al/archivo/Goog_API-0.1.tar.gz#egg=Goog_API[Goog_API_Sheets_Metodos]
 ```
 >*Ejemplo de instalación del Módulo **`Sheets_Metodos`***
 
