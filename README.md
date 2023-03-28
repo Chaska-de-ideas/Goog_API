@@ -69,26 +69,19 @@ pip install /ruta/al/archivo/Goog_API-0.1.tar.gz#egg=Goog_API[Goog_API_Sheets_Me
 ***
 
 ## Método General Goog_API_Build:
-
-El método **`Goog_API_Build()`** se utiliza para construir y devolver un objeto de clase service autenticado por la API de Google especificada, utilizando los métodos de autenticación propios de cada uno de los módulos específicos de la librería.
+```python
+Goog_API_Build(archivo_credenciales,)
+```
+>El método **`Goog_API_Build()`** se utiliza para construir y devolver un objeto de clase service autenticado por la API de Google especificada, utilizando los métodos de autenticación propios de cada uno de los módulos específicos de la librería.
+>**`Goog_API_Build()`** llama a los métodos de autenticación específicos de cada módulo correspondiente a la aplicación de Google especificada. Los métodos de autenticación propios de cada uno de los módulos se encargan de crear las credenciales de la API de Google y devolver un objeto de clase service autenticado.
 
 **Recibe:**
-
-archivo_credenciales: Ruta al archivo de credenciales en formato JSON. Este archivo contiene la información de autenticación necesaria para realizar la conexión a la API de Google.
-app: Nombre de la aplicación de Google (Sheets, Docs, gMail, Calendar o Drive) para la que se desea crear el objeto de clase service.
-gMail_Build_Mail_envio (opcional): Dirección de correo electrónico para la aplicación gMail, que se utilizará como dirección de envío predeterminada en el método gMail_Build().
-El método Goog_API_Build() llama a los métodos de autenticación específicos de cada módulo correspondiente a la aplicación de Google especificada. Los métodos de autenticación propios de cada uno de los módulos se encargan de crear las credenciales de la API de Google y devolver un objeto de clase service autenticado.
-
-Parámetros
-archivo_credenciales: [STR] - Ruta al archivo de credenciales en formato JSON.
-
-app: [STR] - Nombre de la aplicación de Google para la que se desea crear el objeto de clase service. Las opciones válidas son: Sheets, Docs, gMail, Calendar o Drive.
-
-gMail_Build_Mail_envio (opcional): [STR] - Dirección de correo electrónico para la aplicación gMail, que se utilizará como dirección de envío predeterminada en el método gMail_Build().
+* **STR `archivo_credenciales` :** Ruta al archivo de credenciales [**JSON**] descargado de la [Google Cloud Console](https://console.cloud.google.com/).
+* **STR `app` :** Nombre de la aplicación de Google (Sheets, Docs, gMail, Calendar o Drive) que se desea autenticar.
+* **STR `gMail_Build_Mail_envio` (opcional):**   Dirección que se utilizará como remitente en el método gMail_Build().
 
 **Devuelve:**
-Ret: TDA::'service' - Devuelve un objeto de clase service autenticado por la API de Google especificada. Este objeto se puede utilizar para interactuar con la API de Google correspondiente.
-
+* **TDA `[app]_autenticado` :**  Devuelve un objeto de clase service autenticado por la API de Google especificada. Este objeto se puede utilizar para interactuar con la API de Google correspondiente.
 
 ##### Ejemplo de Uso
 ```python
