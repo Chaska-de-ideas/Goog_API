@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: Goog-API
+Version: 0.2
+Summary: UNKNOWN
+Home-page: https://github.com/Chaska-de-ideas/Goog_API
+Author: Hernán A. Teszkiewicz Novick
+Author-email: herni@cajadeideas.ar
+License: MIT
+Download-URL: https://github.com/Chaska-de-ideas/Goog_API/raw/main/Goog_API-0.1.tar.gz
+Description: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: Goog_API_gMail_Metodos
+Provides-Extra: Goog_API_Sheets_Metodos
+Provides-Extra: Goog_API_Calendar_Metodos

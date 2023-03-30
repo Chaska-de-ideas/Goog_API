@@ -623,13 +623,13 @@ Calendar_Nuevo_Evento(calendar_autorizado, evento, CALENDAR_ID)
 
 ***
 
-[^1]: **Pasos a seguir para crear su *`'Cuenta de Servicio'`*:**
-    >1. **Acceder a la Consola de Google Cloud:** Acceda a la Consola de Google Cloud en https://console.cloud.google.com/ e inicie sesión con su cuenta de Google.
-    >2. **Crear un nuevo proyecto:** Si aún no tiene un proyecto, deberá creaar uno nuevo haciendo clic en "Seleccionar Proyecto" en la parte superior de la pantalla y luego haciendo clic en "Nuevo proyecto".
-    >3. **Habilitar la API que desea utilizar:** Haga clic en "Explorar y habilitar APIs" en la parte superior de la pantalla y busque la API que deseas utilizar. Haga clic en ella y luego haga clic en "Habilitar".
-    >4. **Crear una *`'Cuenta de Servicio'`*:** En el panel de navegación de la izquierda, haga clic en "IAM y administración" y luego en "Cuentas de servicio". Haga clic en "Crear cuenta de servicio" y proporcione un nombre y una descripción para la cuenta de servicio. Haga clic en "Crear".
-    >5. **Configurar los permisos:** Una vez creada la cuenta de servicio, seleccione la cuenta de servicio en la lista y haga clic en "Agregar rol" para agregar permisos. Elija los roles que desea otorgar a la cuenta de servicio y haga clic en "Guardar".
-    >6. **Generar la clave privada:** Haga clic en la cuenta de servicio que acaba de crear y luego vaya en la pestaña "Claves". Haga clic en "Agregar clave" y elija "Crear nueva clave". Elija "JSON" como tipo de clave y créela. Se descargará un archivo JSON con las credenciales de la cuenta de servicio.
-        >>***Ese archivo JSON es el que usarán todos los métodos _Build() de esta librería para autenticarse frente a la API***
-    >7. **Compartir directorios y archivos con la *`'Cuenta de Servicio'`*:** Si Ud. desea operar sobre directorios o archivos previamente existentes, es decir que no fueran creados por la cuenta de servicio utilizando los métodos de esta librería, Ud. deberá otorgar acceso de edición a la cuenta de servicio para cada uno de esos directorios. 
+>[^1]: **Pasos a seguir para crear su *`'Cuenta de Servicio'`*:**
+>>1. **Acceder a la Consola de Google Cloud:** Acceda a la Consola de Google Cloud en https://console.cloud.google.com/ e inicie sesión con su cuenta de Google.
+>>2. **Crear un nuevo proyecto:** Si aún no tiene un proyecto, deberá creaar uno nuevo haciendo clic en "Seleccionar Proyecto" en la parte superior de la pantalla y luego haciendo clic en "Nuevo proyecto".
+>>3. **Habilitar la API que desea utilizar:** Haga clic en "Explorar y habilitar APIs" en la parte superior de la pantalla y busque la API que deseas utilizar. Haga clic en ella y luego haga clic en "Habilitar".
+>>4. **Crear una *`'Cuenta de Servicio'`*:** En el panel de navegación de la izquierda, haga clic en "IAM y administración" y luego en "Cuentas de servicio". Haga clic en "Crear cuenta de servicio" y proporcione un nombre y una descripción para la cuenta de servicio. Haga clic en "Crear".
+>>5. **Configurar los permisos:** Una vez creada la cuenta de servicio, seleccione la cuenta de servicio en la lista y haga clic en "Agregar rol" para agregar permisos. Elija los roles que desea otorgar a la cuenta de servicio y haga clic en "Guardar".
+>>6. **Generar la clave privada:** Haga clic en la cuenta de servicio que acaba de crear y luego vaya en la pestaña "Claves". Haga clic en "Agregar clave" y elija "Crear nueva clave". Elija "JSON" como tipo de clave y créela. Se descargará un archivo JSON con las credenciales de la cuenta de servicio.
+>>>***Ese archivo JSON es el que usarán todos los métodos _Build() de esta librería para autenticarse frente a la API***
+>>7. **Compartir directorios y archivos con la *`'Cuenta de Servicio'`*:** Si Ud. desea operar sobre directorios o archivos previamente existentes, es decir que no fueran creados por la cuenta de servicio utilizando los métodos de esta librería, Ud. deberá otorgar acceso de edición a la cuenta de servicio para cada uno de esos directorios. 
 
