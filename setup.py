@@ -8,7 +8,7 @@ setup(
     author_email     = 'herni@cajadeideas.ar',
     license          =  'MIT'    ,
     url= 'https://github.com/Chaska-de-ideas/Goog_API',
-    download_url     =  'https://github.com/Chaska-de-ideas/Goog_API/raw/main/Goog_API-0.1.tar.gz',
+    download_url     =  'https://github.com/Chaska-de-ideas/Goog_API/raw/main/dist/Goog_API-0.2.tar.gz',
     packages=find_packages(),
     install_requires=[
         'google-api-python-client',
