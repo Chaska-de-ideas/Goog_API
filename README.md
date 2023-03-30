@@ -3,7 +3,7 @@
 
 La librería Goog_API es una herramienta de Python que permite interactuar con las distintas APIs de Google a través de métodos personalizados que simplifican las tareas más comunes que un script puede solicitar a las diversas APIs de Google. Los módulos incluidos en esta librería son específicos para las aplicaciones de Docs, Sheets, Drive, Gmail y Calendar.
 
-*La librería fue desarrollada por Hernán A. Teszkiewicz Novick, para el equipo dev. de [Ch'aska](https://cajadeideas.ar) y está disponible para su uso y distribución bajo CC BY-NC-SA 4.0*
+*La librería fue desarrollada por Hernán A. Teszkiewicz Novick, para el equipo dev. de [Ch'aska](https://cajadeideas.ar) y está disponible para su uso y distribución bajo [LICENCIA.TXT](https://cajadeideas.ar)*
 
 
 ## Módulos 
@@ -42,7 +42,7 @@ Puede instalar la librería completa a partir del paquete `.tar.gz` utilizando `
 2.  **Ejecute** el siguiente comando en la `terminal`:
 
 ``` Bash
-pip install /ruta/al/archivo/Goog_API-0.1.tar.gz
+pip install /ruta/al/archivo/Goog_API.tar.gz
 ``` 
 
 #### b. Módulos particulares
@@ -62,26 +62,26 @@ pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-pyt
 2. Luego, deberá instalar el módulo que desea agregando al comando `PIP` el sufijo `#egg` para indicar el módulo correspondiente:
 
 ```Bash
-pip install /ruta/al/archivo/Goog_API-0.1.tar.gz#egg=Goog_API[Goog_API_Sheets_Metodos]
+pip install /ruta/al/archivo/Goog_API.tar.gz#egg=Goog_API[Goog_API_Sheets_Metodos]
 ```
 >*Ejemplo de instalación del Módulo **`Sheets_Metodos`***
 
 ***
 
-## Método General Goog_API_Build:
-```python
+## Método General `Goog_API_Build()`:
+```Python
 Goog_API_Build(archivo_credenciales,app,gMail_Build_Mail_envio=None)
 ```
 >El método **`Goog_API_Build()`** se utiliza para construir y devolver un objeto de clase service autenticado por la API de Google especificada, utilizando los métodos de autenticación propios de cada uno de los módulos específicos de la librería.
->**`Goog_API_Build()`** llama a los métodos de autenticación específicos de cada módulo correspondiente a la aplicación de Google especificada. Los métodos de autenticación propios de cada uno de los módulos se encargan de crear las credenciales de la API de Google y devolver un objeto de clase service autenticado.
 
 **Recibe:**
-* **STR `archivo_credenciales` :** Ruta al archivo de credenciales [**JSON**] descargado de la [Google Cloud Console](https://console.cloud.google.com/).
-* **STR `app` :** Nombre de la aplicación de Google (Sheets, Docs, gMail, Calendar o Drive) que se desea autenticar.
-* **STR `gMail_Build_Mail_envio` (opcional):**   Dirección que se utilizará como remitente en el método gMail_Build().  Por defecto es None.
+* **STR `archivo_credenciales`**: Ruta al archivo de credenciales [**JSON**] descargado de la [Google Cloud Console](https://console.cloud.google.com/).
+* **STR `app`** : Nombre de la aplicación de Google (Sheets, Docs, gMail, Calendar o Drive) para la que se desea crear el objeto de clase service.
+* **STR `gMail_Build_Mail_envio`** (*opcional*): Dirección de correo electrónico para la aplicación gMail. *Se utilizará como dirección de envío predeterminada en el método gMail_Build().* Por defecto es `None`.
 
 **Devuelve:**
-* **TDA `[app]_autenticado` :**  Devuelve un objeto de clase service autenticado por la API de Google especificada. Este objeto se puede utilizar para interactuar con la API de Google correspondiente.
+* **TDA `app_autenticada`**: Objeto de clase service autenticado por la API de Google especificada. Este objeto se puede utilizar para interactuar con la API de Google correspondiente.
+
 
 ##### Ejemplo de Uso
 ```python
@@ -89,7 +89,7 @@ from Goog_API import Goog_API_Build
 
 archivo_credenciales = 'ruta/al/archivo/creds.json'
 app = 'Sheets'
-sheet_autorizada = Goog_API_Build(archivo_credenciales, app)
+sheet_autorizada = Goog_API_Build(archivo_credenciales,app)
 
 ```
 
@@ -157,6 +157,22 @@ Drive_crear_sheet_en_carpeta(drive_autenticado, nombre:str, carpeta_id:str)
 
 **Devuelve:**
 * **STR   `sheet_id`** : ID único de la hoja de cálculo creada.
+
+#### 5. Método `Drive_subir_archivo()` :
+```python
+Drive_subir_archivo(drive_autenticado,archivo_a_subir:str,nombre_del_archivo:str,convertir_archivo:bool=True,carpeta_id:str=None)
+```
+>Método que sube un archivo a Google Drive y devuelve su ID único. Si se especifica un ID de carpeta, el archivo se creará como un archivo en esa carpeta.
+
+**Recibe:**
+* **TDA `drive_autenticado`** : objeto de servicio autorizado de Google Drive, devuelto por el método `Drive_Build()`
+* **STR `archivo_a_subir`** : ruta al archivo que se desea subir
+* **STR `nombre_del_archivo`** : nombre del archivo que se desea subir
+* **STR `carpeta_id`** (*opcional*) : el ID de la carpeta donde se subirá el archivo. Por defecto es `None`.
+
+**Devuelve:**
+* **STR `ID_Archivo_subido`**: el ID único del archivo subido.
+>Nota: Si no se especifica el ID de una carpeta, el archivo se subirá en la carpeta raíz de la cuenta de servicio utilizada para la autenticación.
 
 ##### Ejemplo de uso:
 ```python
@@ -607,12 +623,13 @@ Calendar_Nuevo_Evento(calendar_autorizado, evento, CALENDAR_ID)
 
 ***
 
-[^1]: **Pasos a seguir para crear su *`'Cuenta de Servicio'`*:**
-    >1. **Acceder a la Consola de Google Cloud:** Acceda a la Consola de Google Cloud en https://console.cloud.google.com/ e inicie sesión con su cuenta de Google.
-    >2. **Crear un nuevo proyecto:** Si aún no tiene un proyecto, deberá creaar uno nuevo haciendo clic en "Seleccionar Proyecto" en la parte superior de la pantalla  y luego haciendo clic en "Nuevo proyecto".
-    >3. **Habilitar la API que desea utilizar:** Haga clic en "Explorar y habilitar APIs" en la parte superior de la pantalla y busque la API que deseas utilizar. Haga clic en ella y luego haga clic en "Habilitar".
-    >4. **Crear una *`'Cuenta de Servicio'`*:** En el panel de navegación de la izquierda, haga clic en "IAM y administración" y luego en "Cuentas de servicio". Haga clic en "Crear cuenta de servicio" y proporcione un nombre y una descripción para la cuenta de servicio. Haga clic en "Crear".
-    >5. **Configurar los permisos:** Una vez creada la cuenta de servicio, seleccione la cuenta de servicio en la lista y haga clic en "Agregar rol" para agregar permisos. Elija los roles que desea otorgar a la cuenta de servicio y haga clic en "Guardar".
-    >6. **Generar la clave privada:** Haga clic en la cuenta de servicio que acaba de crear y luego vaya en la pestaña "Claves". Haga clic en "Agregar clave" y elija "Crear nueva clave". Elija "JSON" como tipo de clave y créela. Se descargará un archivo JSON con las credenciales de la cuenta de servicio.
-    >7. **Compartir directorios y archivos con la *`'Cuenta de Servicio'`*:** Si Ud. desea operar sobre directorios o archivos previamente existentes, es decir que no fueran creados por la cuenta de servicio utilizando los métodos de esta librería, Ud. deberá otorgar acceso de edición a la cuenta de servicio para cada uno de esos directorios. 
-    >***Ese archivo JSON es el que usarán todos los métodos _Build() de esta librería para autenticarse frente a la API***
+>[^1]: **Pasos a seguir para crear su *`'Cuenta de Servicio'`*:**
+>>1. **Acceder a la Consola de Google Cloud:** Acceda a la Consola de Google Cloud en https://console.cloud.google.com/ e inicie sesión con su cuenta de Google.
+>>2. **Crear un nuevo proyecto:** Si aún no tiene un proyecto, deberá creaar uno nuevo haciendo clic en "Seleccionar Proyecto" en la parte superior de la pantalla y luego haciendo clic en "Nuevo proyecto".
+>>3. **Habilitar la API que desea utilizar:** Haga clic en "Explorar y habilitar APIs" en la parte superior de la pantalla y busque la API que deseas utilizar. Haga clic en ella y luego haga clic en "Habilitar".
+>>4. **Crear una *`'Cuenta de Servicio'`*:** En el panel de navegación de la izquierda, haga clic en "IAM y administración" y luego en "Cuentas de servicio". Haga clic en "Crear cuenta de servicio" y proporcione un nombre y una descripción para la cuenta de servicio. Haga clic en "Crear".
+>>5. **Configurar los permisos:** Una vez creada la cuenta de servicio, seleccione la cuenta de servicio en la lista y haga clic en "Agregar rol" para agregar permisos. Elija los roles que desea otorgar a la cuenta de servicio y haga clic en "Guardar".
+>>6. **Generar la clave privada:** Haga clic en la cuenta de servicio que acaba de crear y luego vaya en la pestaña "Claves". Haga clic en "Agregar clave" y elija "Crear nueva clave". Elija "JSON" como tipo de clave y créela. Se descargará un archivo JSON con las credenciales de la cuenta de servicio.
+>>>***Ese archivo JSON es el que usarán todos los métodos _Build() de esta librería para autenticarse frente a la API***
+>>7. **Compartir directorios y archivos con la *`'Cuenta de Servicio'`*:** Si Ud. desea operar sobre directorios o archivos previamente existentes, es decir que no fueran creados por la cuenta de servicio utilizando los métodos de esta librería, Ud. deberá otorgar acceso de edición a la cuenta de servicio para cada uno de esos directorios. 
+
