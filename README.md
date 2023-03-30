@@ -3,7 +3,7 @@
 
 La librería Goog_API es una herramienta de Python que permite interactuar con las distintas APIs de Google a través de métodos personalizados que simplifican las tareas más comunes que un script puede solicitar a las diversas APIs de Google. Los módulos incluidos en esta librería son específicos para las aplicaciones de Docs, Sheets, Drive, Gmail y Calendar.
 
-*La librería fue desarrollada por Hernán A. Teszkiewicz Novick, para el equipo dev. de [Ch'aska](https://cajadeideas.ar) y está disponible para su uso y distribución bajo [LICENCIA.TXT](https://cajadeideas.ar)*
+*La librería fue desarrollada por Hernán A. Teszkiewicz Novick, para el equipo dev. de [Ch'aska](https://cajadeideas.ar) y está disponible para su uso y distribución bajo [**LICENCIA MIT**](https://github.com/Chaska-de-ideas/Goog_API/blob/main/LICENCE.TXT)*
 
 
 ## Módulos 
@@ -35,14 +35,22 @@ Ud. puede optar por instalar la librería completa o sólo alguno de sus módulo
 >Tenga en cuenta que si Ud. decide instalar sólo algunos de sus módulos, puden surgir errores al intentar  instalar las dependencias que el paquete necesita para funcionar. Se recomienda realizar previamente la instalación manual, aunque no sea estrictamente necesario.
 
 #### Métodos de instalación:
-    
-#### a. Toda la librería
+
+#### a.1 Toda la librería (Automático)
+Puede instalar la librería completa desde la web utilizando `PIP`, según se indica a continuación:
+1.  **Ejecute** el siguiente comando en la `terminal`:
+
+``` Bash
+pip install Goog_API
+``` 
+
+#### a.2 Toda la librería (Manual)
 Puede instalar la librería completa a partir del paquete `.tar.gz` utilizando `PIP`, según se indica a continuación:
-1. **Descargue** el archivo [**`Goog_API.tar.gz`**](https://github.com/Chaska-de-ideas/Goog_API/raw/main/Goog_API-0.1.tar.gz)
+1. **Descargue** el archivo [**`Goog_API-0.2.tar.gz`**](https://github.com/Chaska-de-ideas/Goog_API/raw/main/dist/Goog_API-0.2.tar.gz)
 2.  **Ejecute** el siguiente comando en la `terminal`:
 
 ``` Bash
-pip install /ruta/al/archivo/Goog_API.tar.gz
+pip install /ruta/al/archivo/Goog_API-02.tar.gz
 ``` 
 
 #### b. Módulos particulares
@@ -623,13 +631,13 @@ Calendar_Nuevo_Evento(calendar_autorizado, evento, CALENDAR_ID)
 
 ***
 
->[^1]: **Pasos a seguir para crear su *`'Cuenta de Servicio'`*:**
->>1. **Acceder a la Consola de Google Cloud:** Acceda a la Consola de Google Cloud en https://console.cloud.google.com/ e inicie sesión con su cuenta de Google.
->>2. **Crear un nuevo proyecto:** Si aún no tiene un proyecto, deberá creaar uno nuevo haciendo clic en "Seleccionar Proyecto" en la parte superior de la pantalla y luego haciendo clic en "Nuevo proyecto".
->>3. **Habilitar la API que desea utilizar:** Haga clic en "Explorar y habilitar APIs" en la parte superior de la pantalla y busque la API que deseas utilizar. Haga clic en ella y luego haga clic en "Habilitar".
->>4. **Crear una *`'Cuenta de Servicio'`*:** En el panel de navegación de la izquierda, haga clic en "IAM y administración" y luego en "Cuentas de servicio". Haga clic en "Crear cuenta de servicio" y proporcione un nombre y una descripción para la cuenta de servicio. Haga clic en "Crear".
->>5. **Configurar los permisos:** Una vez creada la cuenta de servicio, seleccione la cuenta de servicio en la lista y haga clic en "Agregar rol" para agregar permisos. Elija los roles que desea otorgar a la cuenta de servicio y haga clic en "Guardar".
->>6. **Generar la clave privada:** Haga clic en la cuenta de servicio que acaba de crear y luego vaya en la pestaña "Claves". Haga clic en "Agregar clave" y elija "Crear nueva clave". Elija "JSON" como tipo de clave y créela. Se descargará un archivo JSON con las credenciales de la cuenta de servicio.
->>>***Ese archivo JSON es el que usarán todos los métodos _Build() de esta librería para autenticarse frente a la API***
->>7. **Compartir directorios y archivos con la *`'Cuenta de Servicio'`*:** Si Ud. desea operar sobre directorios o archivos previamente existentes, es decir que no fueran creados por la cuenta de servicio utilizando los métodos de esta librería, Ud. deberá otorgar acceso de edición a la cuenta de servicio para cada uno de esos directorios. 
+[^1]: **Pasos a seguir para crear su *`'Cuenta de Servicio'`*:**
+    >1. **Acceder a la Consola de Google Cloud:** Acceda a la Consola de Google Cloud en https://console.cloud.google.com/ e inicie sesión con su cuenta de Google.
+    >2. **Crear un nuevo proyecto:** Si aún no tiene un proyecto, deberá creaar uno nuevo haciendo clic en "Seleccionar Proyecto" en la parte superior de la pantalla y luego haciendo clic en "Nuevo proyecto".
+    >3. **Habilitar la API que desea utilizar:** Haga clic en "Explorar y habilitar APIs" en la parte superior de la pantalla y busque la API que deseas utilizar. Haga clic en ella y luego haga clic en "Habilitar".
+    >4. **Crear una *`'Cuenta de Servicio'`*:** En el panel de navegación de la izquierda, haga clic en "IAM y administración" y luego en "Cuentas de servicio". Haga clic en "Crear cuenta de servicio" y proporcione un nombre y una descripción para la cuenta de servicio. Haga clic en "Crear".
+    >5. **Configurar los permisos:** Una vez creada la cuenta de servicio, seleccione la cuenta de servicio en la lista y haga clic en "Agregar rol" para agregar permisos. Elija los roles que desea otorgar a la cuenta de servicio y haga clic en "Guardar".
+    >6. **Generar la clave privada:** Haga clic en la cuenta de servicio que acaba de crear y luego vaya en la pestaña "Claves". Haga clic en "Agregar clave" y elija "Crear nueva clave". Elija "JSON" como tipo de clave y créela. Se descargará un archivo JSON con las credenciales de la cuenta de servicio.
+        >>***Ese archivo JSON es el que usarán todos los métodos _Build() de esta librería para autenticarse frente a la API***
+    >7. **Compartir directorios y archivos con la *`'Cuenta de Servicio'`*:** Si Ud. desea operar sobre directorios o archivos previamente existentes, es decir que no fueran creados por la cuenta de servicio utilizando los métodos de esta librería, Ud. deberá otorgar acceso de edición a la cuenta de servicio para cada uno de esos directorios. 
 
